@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring Dashboard</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Dashboard</h2>
+            <ul>
+                <li id="overview" class="menu-item">Overview</li>
+                <li id="containers" class="menu-item">Containers</li>
+                <li id="apis" class="menu-item">APIs</li>
+                <li id="resources" class="menu-item">Resource Monitoring</li>
+            </ul>
+        </div>
+        
+        <!-- Main content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <h1>System Monitoring</h1>
+                <div class="actions">
+                    <button id="refresh">Refresh</button>
+                    
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('overview').addEventListener('click', () => {
+            window.location.href = 'http://localhost:3000'; // Đường dẫn đến trang khác
+        });
+
+        document.getElementById('containers').addEventListener('click', () => {
+            window.location.href = 'http://localhost:3000/containers'; // Đường dẫn đến trang khác
+        });
+
+        document.getElementById('apis').addEventListener('click', () => {
+            window.location.href = 'http://localhost:3000/apis'; // Đường dẫn đến trang khác
+        });
+
+        document.getElementById('resources').addEventListener('click', () => {
+            window.location.href = 'http://localhost:3000/resources'; // Đường dẫn đến trang khác
+        });
+    </script>
+    
+</body>
+</html>

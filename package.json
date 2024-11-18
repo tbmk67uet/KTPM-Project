@@ -20,7 +20,8 @@
   "homepage": "https://github.com/tbmk67uet/KTPM-Project#readme",
   "dependencies": {
     "express": "^4.21.1",
-    "express-handlebars": "^8.0.1"
+    "express-handlebars": "^8.0.1",
+    "systeminformation": "^5.23.5"
   },
   "devDependencies": {
     "nodemon": "^3.1.7",

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring Dashboard</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Dashboard</h2>
+            <ul>
+                <li id="overview" class="menu-item">Overview</li>
+                <li id="containers" class="menu-item">Containers</li>
+                <li id="apis" class="menu-item">APIs</li>
+                <li id="resources" class="menu-item">Resource Monitoring</li>
+            </ul>
+        </div>
+        
+        <!-- Main content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <h1>System Monitoring</h1>
+                <div class="actions">
+                    <button id="refresh">Refresh</button>
+                    
+                </div>
+            </div>
+
+            <!-- Status Table -->
+            <div class="status-section">
+                <h2>Service Status</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Container 1</td>
+                            <td><span class="status up">UP</span></td>
+                        </tr>
+                        <tr>
+                            <td>Container 2</td>
+                            <td><span class="status down">DOWN</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Realtime Resource Graph -->
+            <div class="resource-section">
+                <div id="statsContainer" class="stats-section">
+                    <h2>CPU</h2>
+                    <p id="cpuUsage">Loading...</p>
+
+                    <h2>Memory</h2>
+                    <p id="memoryUsage">Loading...</p>
+
+                    <h2>Network Bandwidth</h2>
+                    <p id="networkBandwidthSent">Upload Bandwidth: N/A</p>
+                    <p id="networkBandwidthReceived">Download Bandwidth: N/A</p>
+                </div>
+            </div>
+
+            <!-- Traffic Chart -->
+            <div class="traffic-section">
+                <h2>Traffic Chart</h2>
+                <canvas id="trafficChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('trafficChart').getContext('2d');
+
+const trafficChart = new Chart(ctx, {
+    type: 'line',  
+    data: {
+        labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00'],  
+        datasets: [{
+            label: 'Traffic (requests)',
+            data: [50, 75, 60, 90, 100, 110],  
+            borderColor: 'rgba(75, 192, 192, 1)',  
+            fill: false  
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            x: {
+                beginAtZero: true
+            },
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+    
+        document.getElementById('overview').addEventListener('click', () => {
+            window.location.href = 'http://localhost:3000'; 
+        });
+
+        document.getElementById('containers').addEventListener('click', () => {
+            window.location.href = 'http://localhost:3000/containers'; 
+        });
+
+        document.getElementById('apis').addEventListener('click', () => {
+            window.location.href = 'http://localhost:3000/apis'; 
+        });
+
+        document.getElementById('resources').addEventListener('click', () => {
+            window.location.href = 'http://localhost:3000/resources'; 
+        });
+
+        document.getElementById('refresh').addEventListener('click', () => {
+            location.reload(); // This reloads the page, similar to pressing F5
+        });
+
+        async function fetchServerStats() {
+    try {
+        const response = await fetch('/api/server-stats');
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        document.getElementById('cpuUsage').textContent = `CPU Usage: ${data.cpu || 'N/A'}%`;
+        document.getElementById('memoryUsage').textContent = `Memory: ${
+            data.memory?.used || 'N/A'
+        } MB / ${data.memory?.total || 'N/A'} MB`;
+
+        
+        document.getElementById('networkBandwidthSent').textContent = `Upload Bandwidth: ${
+            data.bandwidth?.sent || 'N/A'
+        } KB/s`;
+        document.getElementById('networkBandwidthReceived').textContent = `Download Bandwidth: ${
+            data.bandwidth?.received || 'N/A'
+        } KB/s`;
+    } catch (error) {
+        console.error('Error fetching server stats:', error);
+        document.getElementById('statsContainer').textContent = 'Error loading server stats';
+    }
+}
+
+fetchServerStats();
+
+
+    </script>
+    
+</body>
+</html>
