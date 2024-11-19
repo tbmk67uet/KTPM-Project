@@ -18,7 +18,7 @@ const trafficData = {
     trafficData.timestamps.push(now.toISOString());
   
     
-    if (trafficData.timestamps.length > 1000) {
+    if (trafficData.timestamps.length > 999) {
       trafficData.timestamps.shift();
     }
   
