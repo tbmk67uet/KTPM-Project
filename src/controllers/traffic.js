@@ -14,7 +14,6 @@ const trafficData = {
   
     
     trafficData.pages[page] = (trafficData.pages[page] || 0) + 1;
-  
     
     trafficData.timestamps.push(now.toISOString());
   
