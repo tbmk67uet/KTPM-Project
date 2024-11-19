@@ -76,86 +76,9 @@
             </div>
         </div>
     </div>
-
-    <script>
-        const ctx = document.getElementById('trafficChart').getContext('2d');
-
-const trafficChart = new Chart(ctx, {
-    type: 'line',  
-    data: {
-        labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00'],  
-        datasets: [{
-            label: 'Traffic (requests)',
-            data: [50, 75, 60, 90, 100, 110],  
-            borderColor: 'rgba(75, 192, 192, 1)',  
-            fill: false  
-        }]
-    },
-    options: {
-        responsive: true,
-        scales: {
-            x: {
-                beginAtZero: true
-            },
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
-    
-        document.getElementById('overview').addEventListener('click', () => {
-            window.location.href = 'http://localhost:3000'; 
-        });
-
-        document.getElementById('containers').addEventListener('click', () => {
-            window.location.href = 'http://localhost:3000/containers'; 
-        });
-
-        document.getElementById('apis').addEventListener('click', () => {
-            window.location.href = 'http://localhost:3000/apis'; 
-        });
-
-        document.getElementById('resources').addEventListener('click', () => {
-            window.location.href = 'http://localhost:3000/resources'; 
-        });
-
-        document.getElementById('refresh').addEventListener('click', () => {
-            location.reload(); // This reloads the page, similar to pressing F5
-        });
-
-        async function fetchServerStats() {
-    try {
-        const response = await fetch('/api/server-stats');
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-
-        document.getElementById('cpuUsage').textContent = `CPU Usage: ${data.cpu || 'N/A'}%`;
-        document.getElementById('memoryUsage').textContent = `Memory: ${
-            data.memory?.used || 'N/A'
-        } MB / ${data.memory?.total || 'N/A'} MB`;
-
-        
-        document.getElementById('networkBandwidthSent').textContent = `Upload Bandwidth: ${
-            data.bandwidth?.sent || 'N/A'
-        } KB/s`;
-        document.getElementById('networkBandwidthReceived').textContent = `Download Bandwidth: ${
-            data.bandwidth?.received || 'N/A'
-        } KB/s`;
-    } catch (error) {
-        console.error('Error fetching server stats:', error);
-        document.getElementById('statsContainer').textContent = 'Error loading server stats';
-    }
-}
-
-fetchServerStats();
-
-
-    </script>
+    <script src="/js/pageSwitch.js"></script>
+    <script src="/js/serverStats.js"></script>
+    <script src="/js/trafficStats.js"></script>
     
 </body>
 </html>
