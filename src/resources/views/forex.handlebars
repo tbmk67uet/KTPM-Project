@@ -14,8 +14,8 @@
             <h2>Dashboard</h2>
             <ul>
                 <li id="overview" class="menu-item">Overview</li>
-                <li id="containers" class="menu-item">Containers</li>
-                <li id="apis" class="menu-item">APIs</li>
+                <li id="containers" class="menu-item">Forex</li>
+                <li id="apis" class="menu-item">Gold Price</li>
                 <li id="resources" class="menu-item">Resource Monitoring</li>
             </ul>
         </div>
@@ -30,12 +30,20 @@
                     
                 </div>
             </div>
+            <div class="container-">
+                <h1>Forex USD to VND Tracker</h1>
+                <div id="rate-container">
+                    <p>Current USD to VND: <span id="usd-vnd">Loading...</span></p>
+                </div>
+                <canvas id="rateChart"></canvas>
+    </div>
 
             
         </div>
     </div>
 
     <script src="/js/pageSwitch.js"></script>
+    <script src="/js/forexScript.js"></script>
     
 </body>
 </html>

@@ -14,8 +14,8 @@
             <h2>Dashboard</h2>
             <ul>
                 <li id="overview" class="menu-item">Overview</li>
-                <li id="containers" class="menu-item">Containers</li>
-                <li id="apis" class="menu-item">APIs</li>
+                <li id="containers" class="menu-item">Forex</li>
+                <li id="apis" class="menu-item">Gold Price</li>
                 <li id="resources" class="menu-item">Resource Monitoring</li>
             </ul>
         </div>
@@ -33,22 +33,45 @@
 
             <!-- Status Table -->
             <div class="status-section">
-                <h2>Service Status</h2>
+                <h2>Container Status</h2>
                 <table>
                     <thead>
                         <tr>
-                            <th>Service</th>
+                            <th>Container</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Container 1</td>
-                            <td><span class="status up">UP</span></td>
+                            <td>Forex</td>
+                            <td id="status-container1"><span class="status">Loading...</span></td>
                         </tr>
                         <tr>
-                            <td>Container 2</td>
-                            <td><span class="status down">DOWN</span></td>
+                            <td>Gold Price</td>
+                            <td id="status-container2"><span class="status">Loading...</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Status Table -->
+            <div class="status-section">
+                <h2>Endpoint Status</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Endpoint</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>http://127.0.0.1:3001/</td>
+                            <td id="status-endpoint1"><span class="status">Loading...</span></td>
+                        </tr>
+                        <tr>
+                            <td>http://127.0.0.1:3002/</td>
+                            <td id="status-endpoint2"><span class="status">Loading...</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -79,6 +102,9 @@
     <script src="/js/pageSwitch.js"></script>
     <script src="/js/serverStats.js"></script>
     <script src="/js/trafficStats.js"></script>
+    <script src="/js/containerStatus.js"></script>
+    <script src="/js/endpointStatus.js"></script>
+
     
 </body>
 </html>

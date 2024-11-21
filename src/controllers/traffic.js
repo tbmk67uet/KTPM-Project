@@ -11,6 +11,30 @@ const trafficData = {
     if (page === "/api/traffic-stats") {
       return next();
     }
+
+    if (page === "/api/server-stats") {
+      return next();
+    }
+
+    if (page === "/css/header.css") {
+      return next();
+    }
+
+    if (page === "/containerstatus1") {
+      return next();
+    }
+
+    if (page === "/containerstatus2") {
+      return next();
+    }
+
+    if (page === "/endpointstatus1") {
+      return next();
+    }
+
+    if (page === "/endpointstatus2") {
+      return next();
+    }
   
     
     trafficData.pages[page] = (trafficData.pages[page] || 0) + 1;

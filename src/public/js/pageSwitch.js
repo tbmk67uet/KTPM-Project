@@ -3,11 +3,11 @@ document.getElementById('overview').addEventListener('click', () => {
 });
 
 document.getElementById('containers').addEventListener('click', () => {
-    window.location.href = 'http://localhost:3000/containers'; 
+    window.location.href = 'http://localhost:3000/forex'; 
 });
 
 document.getElementById('apis').addEventListener('click', () => {
-    window.location.href = 'http://localhost:3000/apis'; 
+    window.location.href = 'http://localhost:3000/goldprice'; 
 });
 
 document.getElementById('resources').addEventListener('click', () => {

@@ -14,8 +14,8 @@
             <h2>Dashboard</h2>
             <ul>
                 <li id="overview" class="menu-item">Overview</li>
-                <li id="containers" class="menu-item">Containers</li>
-                <li id="apis" class="menu-item">APIs</li>
+                <li id="containers" class="menu-item">Forex</li>
+                <li id="apis" class="menu-item">Gold Price</li>
                 <li id="resources" class="menu-item">Resource Monitoring</li>
             </ul>
         </div>
@@ -27,15 +27,34 @@
                 <h1>System Monitoring</h1>
                 <div class="actions">
                     <button id="refresh">Refresh</button>
-                    
                 </div>
             </div>
+            <h1>BTMC Gold Prices</h1>
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>Tên</th>
+                <th>Chất liệu</th>
+                <th>Độ Tinh khiết</th>
+                <th>Giá Mua</th>
+                <th>Giá bán</th>
+                <th>PT</th>
+                <th>Thời gian</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="6">Loading data...</td>
+            </tr>
+        </tbody>
+    </table>
 
             
         </div>
     </div>
 
     <script src="/js/pageSwitch.js"></script>
+    <script src="/js/goldScript.js"></script>
     
     
 </body>

@@ -26,4 +26,9 @@ async function fetchServerStats() {
     }
 }
 
+document.addEventListener('DOMContentLoaded', () => {
     fetchServerStats();
+
+    // Tự động cập nhật trạng thái sau mỗi 30 giây
+    setInterval(fetchServerStats, 3000);
+});
