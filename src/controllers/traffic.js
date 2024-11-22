@@ -12,7 +12,7 @@ const trafficData = {
       return next();
     }
 
-    if (page === "/api/server-stats") {
+    if (page === "/api/server-stats" || page === "/forexs" || page === "/api/data") {
       return next();
     }
 
