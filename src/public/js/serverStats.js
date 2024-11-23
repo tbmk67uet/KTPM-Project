@@ -15,10 +15,10 @@ async function fetchServerStats() {
 
         
         document.getElementById('networkBandwidthSent').textContent = `Upload Bandwidth: ${
-            data.bandwidth?.sent || 'N/A'
+            Math.abs(data.bandwidth?.sent) || 'N/A'
         } KB/s`;
         document.getElementById('networkBandwidthReceived').textContent = `Download Bandwidth: ${
-            data.bandwidth?.received || 'N/A'
+            Math.abs(data.bandwidth?.received) || 'N/A'
         } KB/s`;
     } catch (error) {
         console.error('Error fetching server stats:', error);
@@ -28,7 +28,5 @@ async function fetchServerStats() {
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchServerStats();
-
-    // Tự động cập nhật trạng thái sau mỗi 30 giây
-    setInterval(fetchServerStats, 3000);
+    setInterval(fetchServerStats, 1500);
 });

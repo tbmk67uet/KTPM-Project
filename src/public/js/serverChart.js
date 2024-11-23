@@ -103,8 +103,8 @@ async function fetchServerStats() {
 
     //Bandwidth
     bandwidthChart.data.labels.push(now);
-    bandwidthChart.data.datasets[0].data.push(stats.bandwidth.sent);
-    bandwidthChart.data.datasets[1].data.push(stats.bandwidth.received);
+    bandwidthChart.data.datasets[0].data.push(Math.abs(stats.bandwidth.sent));
+    bandwidthChart.data.datasets[1].data.push(Math.abs(stats.bandwidth.received));
     if (bandwidthChart.data.labels.length > 10) {
       bandwidthChart.data.labels.shift();
       bandwidthChart.data.datasets[0].data.shift();
@@ -114,5 +114,5 @@ async function fetchServerStats() {
   }
 
   
-  setInterval(updateCharts, 5000);
+  setInterval(updateCharts, 2000);
   updateCharts();

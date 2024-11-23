@@ -11,11 +11,11 @@ async function fetchContainer1() {
         const statusElement = document.getElementById('status-container1');
 
         if (data === 'running') {
-            statusElement.textContent = '✔️Up';
+            statusElement.textContent = '🟢Up';
             statusElement.classList.remove('down');
             statusElement.classList.add('up');
         } else {
-            document.getElementById('status-container1').textContent = '❌Down';
+            document.getElementById('status-container1').textContent = '🔴Down';
             statusElement.classList.remove('up');
             statusElement.classList.add('down');
         }
@@ -23,7 +23,7 @@ async function fetchContainer1() {
     } catch (error) {
         console.error('Error fetching server stats:', error);
         const statusElement = document.getElementById('status-container1');
-        statusElement.textContent = '❌Down';
+        statusElement.textContent = '🔴Down';
         statusElement.classList.remove('up');
         statusElement.classList.add('down');
     }
@@ -42,11 +42,11 @@ async function fetchContainer2() {
         const statusElement = document.getElementById('status-container2');
 
         if (data === 'running') {
-            statusElement.textContent = '✔️Up';
+            statusElement.textContent = '🟢Up';
             statusElement.classList.remove('down');
             statusElement.classList.add('up');
         } else {
-            document.getElementById('status-container2').textContent = '❌Down';
+            document.getElementById('status-container2').textContent = '🔴Down';
             statusElement.classList.remove('up');
             statusElement.classList.add('down');
         }
@@ -54,7 +54,7 @@ async function fetchContainer2() {
     } catch (error) {
         console.error('Error fetching server stats:', error);
         const statusElement = document.getElementById('status-container2');
-        statusElement.textContent = '❌Down';
+        statusElement.textContent = '🔴Down';
         statusElement.classList.remove('up');
         statusElement.classList.add('down');
     }

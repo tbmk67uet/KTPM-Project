@@ -1,49 +1,51 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Monitoring Dashboard</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <h2>Dashboard</h2>
-            <ul>
-                <li id="overview" class="menu-item">Overview</li>
-                <li id="containers" class="menu-item">Forex</li>
-                <li id="apis" class="menu-item">Gold Price</li>
-                <li id="resources" class="menu-item">Resource Monitoring</li>
-            </ul>
-        </div>
-        
-        <!-- Main content -->
-        <div class="main-content">
-            <!-- Header -->
-            <div class="header">
-                <h1>System Monitoring</h1>
-                <div class="actions">
-                    <button id="refresh">Refresh</button>
-                    
-                </div>
-            </div>
-            <div class="container-">
-                <h1>Forex USD to VND Tracker</h1>
-                <div id="rate-container">
-                    <p>Current USD to VND: <span id="usd-vnd">Loading...</span></p>
-                </div>
-                <canvas id="rateChart"></canvas>
-    </div>
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <h2>Dashboard</h2>
+        <ul>
+          <li id="overview" class="menu-item">Overview</li>
+          <li id="containers" class="menu-item">Forex</li>
+          <li id="apis" class="menu-item">Gold Price</li>
+          <li id="resources" class="menu-item">Resource Monitoring</li>
+        </ul>
+      </div>
 
-            
+      <!-- Main content -->
+      <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+          <h1>System Monitoring</h1>
+          <div class="actions">
+            <button id="refresh">Refresh</button>
+
+          </div>
         </div>
+        <div class="container-">
+          <h1>Forex USD to VND Tracker</h1>
+          <div id="rate-container">
+            <p>Current USD to VND: <span id="usd-vnd">Loading...</span></p>
+          </div>
+          <div class="chart-wrapper">
+            <div class="chart-container">
+              <canvas id="rateChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
     <script src="/js/pageSwitch.js"></script>
     <script src="/js/forexScript.js"></script>
-    
-</body>
+
+  </body>
 </html>
