@@ -7,7 +7,6 @@ async function fetchServerStats() {
         }
 
         const data = await response.json();
-
         document.getElementById('cpuUsage').textContent = `CPU Usage: ${data.cpu || 'N/A'}%`;
         document.getElementById('memoryUsage').textContent = `Memory: ${
             data.memory?.used || 'N/A'

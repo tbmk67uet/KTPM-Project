@@ -1,6 +1,7 @@
 const path = require("path");
 const express = require("express");
 const axios = require('axios');
+const rateLimit = require('express-rate-limit');
 const { engine } = require("express-handlebars");
 const trafficMiddleware = require("./controllers/traffic").trackTraffic;
 const apiRoutes = require("./routes/api");
@@ -13,6 +14,14 @@ const port = 3000;
 
 
 app.use(express.static(path.join(__dirname, "public")));
+
+const globalLimiter = rateLimit({
+  windowMs: 60 * 100, 
+  max: 1000, 
+  message: "Quá nhiều yêu cầu từ IP này. Vui lòng thử lại sau.",
+});
+
+app.use(globalLimiter);
 
 
 app.use(trafficMiddleware);
